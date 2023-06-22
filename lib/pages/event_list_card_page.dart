@@ -11,6 +11,7 @@ class ListCardEvents extends StatefulWidget {
 }
 
 class _ListCardEventsState extends State<ListCardEvents> {
+  //Mock para conversão de JSON no WebSocket
   static const json = '''
   [
     {
@@ -106,6 +107,7 @@ class _ListCardEventsState extends State<ListCardEvents> {
 
   static var jsonMapList = jsonDecode(json);
 
+  //Segue um exemplo de conversão.
   static List<Evento> eventos = jsonMapList.map<Evento>((e) {
     return Evento.fromJson(e);
   }).toList();
