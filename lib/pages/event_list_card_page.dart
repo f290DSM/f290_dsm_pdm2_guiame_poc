@@ -166,13 +166,64 @@ class _ListCardEventsState extends State<ListCardEvents> {
                 ),
               ),
               const Divider(height: 5),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.grey.shade400,
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Detalhamento Artefato/Evento',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
                   ),
-                  margin: const EdgeInsets.all(16),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Table(
+                    columnWidths: const {
+                      0: FlexColumnWidth(1.0),
+                      1: FlexColumnWidth(3.0)
+                    },
+                    border: TableBorder.all(color: Colors.deepPurple),
+                    children: const [
+                      TableRow(
+                        children: [
+                          Text(
+                            'Especificação',
+                            style: TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                          Text(
+                            'Valor',
+                            style: TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                      TableRow(
+                        children: [
+                          Text(
+                            'Tipo',
+                          ),
+                          Text('Lorem ipsum dolor sit amet.'),
+                        ],
+                      ),
+                      TableRow(
+                        children: [
+                          Text(
+                            'Tipo',
+                          ),
+                          Text('Lorem ipsum dolor sit amet.'),
+                        ],
+                      ),
+                      TableRow(
+                        children: [
+                          Text(
+                            'Tipo',
+                          ),
+                          Text('Lorem ipsum dolor sit amet.'),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

@@ -12,25 +12,20 @@ class EventosArtefatos extends StatefulWidget {
 }
 
 class _EventosArtefatosState extends State<EventosArtefatos> {
-  final uriWebSocket =
-      'ws://guiame-api.3far1ivu8btka.us-east-1.cs.amazonlightsail.com/evento/ws/1';
-  late WebSocketChannel channel;
-
   @override
   void initState() {
-    channel = WebSocketChannel.connect(Uri.parse(uriWebSocket));
     super.initState();
   }
 
   @override
   void dispose() {
-    channel.sink.close();
     super.dispose();
   }
 
   List<EventDataModel> events = List.generate(
       10,
       (index) => EventDataModel(
+          id: faker.randomGenerator.numbers(100, 1).first,
           title: faker.animal.name(),
           body: faker.lorem.sentences(3).toString()));
 
@@ -54,11 +49,16 @@ class _EventosArtefatosState extends State<EventosArtefatos> {
           canTapOnHeader: true,
           headerBuilder: (context, isExpanded) {
             return ListTile(
+              leading: CircleAvatar(child: Text('${event.id}')),
               title: Text(event.title),
             );
           },
           body: ListTile(
-            subtitle: Text(event.body),
+            title: const Text('Características'),
+            subtitle: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Text(event.body),
+            ),
           ),
           isExpanded: event.isExpanded,
         );
