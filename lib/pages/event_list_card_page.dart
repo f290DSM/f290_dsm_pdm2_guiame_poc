@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:f290_dsm_pdm2_guiame_poc/model/guiame_models.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ListCardEvents extends StatefulWidget {
   const ListCardEvents({super.key});
